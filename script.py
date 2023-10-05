@@ -99,7 +99,7 @@ set_patterns() #используют информацию из config.txt
 update_req_files()
 send_message_for_me("начало работы")
 while True:
-    os.system("./limits.sh > response.json")
+    os.system("./limits.sh > response.json 2> /dev/null")
     with open("response.json", "r") as f:
         limits = f.readlines()[0]
     a = re.findall(pattern, limits)
