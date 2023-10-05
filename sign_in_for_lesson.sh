@@ -1,0 +1,19 @@
+curl 'https://my.itmo.ru/api/sport/my_sport/sign_for_lesson' \
+  -H 'authority: my.itmo.ru' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: ru' \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwSVliSmNVLW1wbEdBdzhFMzNSNkNKTUdWa3hZdUQ2eUItdWt3RlBJOXV3In0.eyJleHAiOjE2OTY1MjUzODYsImlhdCI6MTY5NjUyMzU4NiwiYXV0aF90aW1lIjoxNjkyMDA0OTEwLCJqdGkiOiIzOGU0ZTI1Ny0xNDBmLTRjNDMtYmQ5My1mYTE3ZDQ1OGI1ZWIiLCJpc3MiOiJodHRwczovL2lkLml0bW8ucnUvYXV0aC9yZWFsbXMvaXRtbyIsImF1ZCI6InlhbmRleCIsInN1YiI6IjU3ZTE2NWIzLWVmNGMtNDRiYy1iNDZmLWNkZDM5ZDQ3ZTg3YSIsInR5cCI6IkJlYXJlciIsImF6cCI6InN0dWRlbnQtcGVyc29uYWwtY2FiaW5ldCIsInNlc3Npb25fc3RhdGUiOiJhOGYzMmJlZS0wYjMzLTRhOWMtODUyMi1mZTI2NmMxOWViM2EiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9teS5pdG1vLnN1IiwiaHR0cHM6Ly9teS5pdG1vLnJ1IiwiaHR0cHM6Ly9lbWJlZC5pZm1vLnJ1IiwiaHR0cHM6Ly9pc3UuaWZtby5ydSJdLCJyZXNvdXJjZV9hY2Nlc3MiOnsieWFuZGV4Ijp7InJvbGVzIjpbImVkaXQ6YWNjb3VudCJdfSwic3R1ZGVudC1wZXJzb25hbC1jYWJpbmV0Ijp7InJvbGVzIjpbImFjY2VzcyJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZWR1IHdvcmsiLCJzaWQiOiJhOGYzMmJlZS0wYjMzLTRhOWMtODUyMi1mZTI2NmMxOWViM2EiLCJpc3UiOjM2ODMwNSwicHJlZmVycmVkX3VzZXJuYW1lIjoiaWQzNjgzMDUifQ.i-lXpcDa-bJx4Vz9I0k7BhsUE8_1VXAKk0WiFakoBRgPopCqwIS-CcgvzHEk74ny1U5tqOYLBP_82knHI9QL90i0glbFRfASjycjp6lDOKXTs7lEefY9-tEypX9kfG-ZMSqToSq1cwplhsSJHaod9gAni5aDobb9wdFEP7obXDlGLgnNoQSnZrbcUXG01nwRaAmiPtZePVq5biT6dlvvVmYZOa9yw013EzP2fDb9FPO1Up9KYqrsCFApjahQr9WGqbORX_jVEUU4PjYO-itXN0Abln3AJ2K4Hci4ZcU2CD95sLXkM0U5CKEXID9eIHk4B9g64kMLkuU6PRBEwuZx8Q' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'origin: https://my.itmo.ru' \
+  -H 'pragma: no-cache' \
+  -H 'referer: https://my.itmo.ru/sport/sign' \
+  -H 'sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36' \
+  --data-raw '[31191]' \
+  --compressed
