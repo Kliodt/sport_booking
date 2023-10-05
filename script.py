@@ -97,6 +97,7 @@ def send_message_for_me(text):
 get_data_from_config_file()
 set_patterns() #используют информацию из config.txt
 update_req_files()
+send_message_for_me("начало работы")
 while True:
     os.system("./limits.sh > response.json")
     with open("response.json", "r") as f:
