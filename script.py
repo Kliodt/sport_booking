@@ -66,7 +66,7 @@ def update_req_files():
 
 
 def update_token():
-    os.system("./token_refresh.sh > response.json")
+    os.system("./token_refresh.sh > response.json 2> /dev/null")
     with open("response.json", "r") as f:
         resp = f.readlines()
         for i in resp:
@@ -81,7 +81,7 @@ def update_token():
     log("токены обновлены и записаны в файлы")
 
 def sign_in_for_lesson():
-    os.system("./sign_in_for_lesson.sh > response.json")
+    os.system("./sign_in_for_lesson.sh > response.json 2> /dev/null")
     with open("response.json", "r") as f:
         resp = f.readline()
         log("(попытка записи)" + resp)
