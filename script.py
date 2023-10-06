@@ -20,7 +20,7 @@ def log(str):
             f.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " ---- " + str + "\n")
         else: #long error
             with open("long_error.log", "w+") as h:
-                h.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " ---- " + str)
+                h.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " ---- \n" + str)
             f.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " ---- (long error - записано в long_error.log) " + str[0:100] + ".....\n")
 
 
@@ -63,7 +63,7 @@ def update_req_files():
         lines = rtok.readlines()
         edited = [f"  --data-raw 'refresh_token={r_token}&scopes=openid%20profile&client_id=student-personal-cabinet&grant_type=refresh_token' \\\n" if "--data-raw" in i else i for i in lines]
 
-    log("значения обновлены")
+    log("значения обновлены: token, token_refresh, token in limits.sh")
 
 def update_sign_in(id):
     #подставить айди и токен в файл sign_in
@@ -110,10 +110,11 @@ get_data_from_config_file()
 set_patterns() #используют информацию из config.txt
 update_req_files()
 send_message_for_me("начало работы")
-while True:
+while len(ids) > 0:
     os.system("./limits.sh > response.json 2> /dev/null")
     with open("response.json", "r") as f:
-        limits = f.readlines()[0]
+        limits = f.readlines()
+        limits = limits[0] if len(limits) != 0 else " "
     
     for id in ids:
         a = re.findall(fr"\"{id}\":[^,]*,[^,]*", limits)
@@ -127,6 +128,9 @@ while True:
             elif "\"error_code\":128" in limits:  #уже записан туда
                 ids.remove(id)
                 send_message_for_me("уже был записан на: " + str(id))
+            elif "\"error_code\":133" in limits:  #уже записан на 2 занятия в неделю
+                ids.remove(id)
+                send_message_for_me("уже был записан на 2 занятия в эту неделю. Удален id == " + str(id))
             elif (not f"\"{str(id)}\"" in limits) and "\"error_code\":0" in limits: #такого номера нет в Limits новерное
                 ids.remove(id)
                 send_message_for_me("В limits нет такого id: " + str(id) + "; Id удален")
@@ -143,13 +147,12 @@ while True:
                     send_message_for_me("записан на: id==" + str(id) + ";  осталось: ids==" + str(ids))
                 else:
                     log("не получилось")
-    #end of "for"
+    #end of "for"        
 
-    if (len(ids) == 0):
-        send_message_for_me("конец работы")
-        break  #exit "while" and program
-                
+
 
     time.sleep(3)
 
 
+
+send_message_for_me("конец работы")
