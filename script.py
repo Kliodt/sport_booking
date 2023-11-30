@@ -62,7 +62,10 @@ def update_req_files():
     with open("token_refresh.sh") as rtok:
         lines = rtok.readlines()
         edited = [f"  --data-raw 'refresh_token={r_token}&scopes=openid%20profile&client_id=student-personal-cabinet&grant_type=refresh_token' \\\n" if "--data-raw" in i else i for i in lines]
-
+    with open("token_refresh.sh", "w") as rtok:
+        for i in edited:
+            rtok.write(i)
+    
     log("значения обновлены: token, token_refresh, token in limits.sh")
 
 def update_sign_in(id):
